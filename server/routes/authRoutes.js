@@ -8,17 +8,17 @@ module.exports = (app) => {
   );
 
   app.get(
-    '/auth/google/callback', 
+    '/auth/google/callback',
     passport.authenticate('google'),
     (req, res) => {
-      res.redirect('/surveys')
+      res.redirect('/surveys');
     }
   );
 
   app.get('/api/logout', (req, res) => {
     // logout is automatically attached to the req obj by passport -> kills the id in the cookie
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {
