@@ -7,6 +7,7 @@ module.exports = (app) => {
     passport.authenticate('google', { scope: ['profile', 'email'] })
   );
 
+  //TODO: work on onLogin redirect
   app.get(
     '/auth/google/callback',
     passport.authenticate('google'),
