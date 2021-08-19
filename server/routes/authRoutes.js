@@ -7,7 +7,13 @@ module.exports = (app) => {
     passport.authenticate('google', { scope: ['profile', 'email'] })
   );
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get(
+    '/auth/google/callback', 
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys')
+    }
+  );
 
   app.get('/api/logout', (req, res) => {
     // logout is automatically attached to the req obj by passport -> kills the id in the cookie
