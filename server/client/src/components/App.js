@@ -12,6 +12,7 @@ const App = () => {
       <Router>
         <div>
           <Route path="/" exact component={Landing} />
+          <Route path="/surveys" exact component={Dashboard} />
         </div>
       </Router>
     </div>
